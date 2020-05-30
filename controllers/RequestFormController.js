@@ -70,7 +70,7 @@ requestformController.delete = function(req, res) {
 	});
 };
 
-// EDIT INFO PAGE => MUST DELETE THIS LATER
+// EDIT request form page =====================================
 requestformController.edit = function(req, res) {
 	RequestForm.findOne({ _id: req.params.id }).exec(function(err, submissionform) {
 		if(err) {
@@ -78,6 +78,26 @@ requestformController.edit = function(req, res) {
 		}
 		else {
 			res.render("../views/forms/edit", { submissionform: submissionform });
+		}
+	});
+};
+
+// UPDATE database with the entries from /forms/edit.ejs =====================================
+requestformController.update = function(req, res) {
+	RequestForm.findByIdAndUpdate(req.params.id, {
+		$set: {
+			first_name: req.body.first_name,
+			last_name: req.body.last_name,
+			phone_number: req.body.phone_number,
+			organization: req.body.organization
+		}
+	}, function(err, submissionform) {
+		if(err) {
+			console.log(err);
+			res.render("../views/forms/edit", { submissionform: submissionform });
+		}
+		else {
+			res.redirect("/forms/");
 		}
 	});
 };

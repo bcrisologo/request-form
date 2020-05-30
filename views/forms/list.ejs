@@ -27,7 +27,8 @@
     				<td><%= submissionform[i].last_name %></td>
     				<td><%= submissionform[i].phone_number %></td>
     				<td><%= submissionform[i].organization %></td>
-    				<form action="/forms/delete/<%= submissionform[i]._id%>" method="post">
+                    <td><a href="/forms/edit/<%= submissionform[i]._id %>">Edit</a></td>
+    				<form action="/forms/delete/<%= submissionform[i]._id %>" method="post">
     					<td><button type="submit">Delete</button></td>
     				</form>
     			</tr>

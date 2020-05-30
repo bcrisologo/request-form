@@ -25,9 +25,19 @@ router.get('/success', function(req, res) {
 	requestform.success(req, res);
 });
 
-// Delete a submitted request
+// Delete a submitted request =======================
 router.post('/delete/:id', function(req, res, next) {
 	requestform.delete(req, res);
+});
+
+// Edit a submitted request =======================
+router.get('/edit/:id', function(req, res) {
+	requestform.edit(req, res);
+});
+
+// Update a submitted request =======================
+router.post('/update/:id', function(req, res) {
+	requestform.update(req, res);
 });
 
 module.exports = router;

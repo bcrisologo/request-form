@@ -7,7 +7,32 @@
 </head>
 <body>
 	<div class="container">
-		
+		<h1>Edit Request Form</h1>
+		<form action="/forms/update/<%= submissionform._id%>" method="post">
+			<table>
+				<tbody>
+					<tr>
+						<td>First Name</td>
+						<td><input type="text" name="first_name" value="<%= submissionform.first_name %>" /></td>
+					</tr>
+					<tr>
+						<td>Last Name</td>
+						<td><input type="text" name="last_name" value="<%= submissionform.last_name %>" /></td>
+					</tr>
+					<tr>
+						<td>Phone Number</td>
+						<td><input type="text" name="phone_number" value="<%= submissionform.phone_number %>" /></td>
+					</tr>
+					<tr>
+						<td>Organization</td>
+						<td><input type="text" name="organization" value="<%= submissionform.organization %>" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><button type="submit">Update</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
 	</div>
 </body>
 </html>

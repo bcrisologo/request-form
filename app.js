@@ -13,6 +13,9 @@ mongoose.Promise = global.Promise;
 // MongoDB for local with db name of requestform
 const url_local = 'mongodb://localhost/requestform';
 
+// To remove deprecation warning for findByIdAndUpdate
+mongoose.set('useFindAndModify', false);
+
 // Establishing connection using Mongoose =============================
 mongoose.connect(url_local, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => console.log('Connection to MongoDB Atlas established'))
