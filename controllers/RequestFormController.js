@@ -8,9 +8,6 @@ var mongoose = require('mongoose');
 // Reference to the Schema found in /models/RequestForm.js
 var RequestForm = require("../models/RequestForm");
 
-// MongoDB Atlas for xerox-form
-// const url_atlas = 'mongodb+srv://yerin:T0rta_0530@bc-cloud-2-vvpqh.mongodb.net/test?retryWrites=true&w=majority';
-
 // controller object for CRUD
 var requestformController = {};
 
