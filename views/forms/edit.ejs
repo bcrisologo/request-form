@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<h1>Edit Request Form</h1>
 		<form action="/forms/update/<%= submissionform._id%>" method="post">
 			<table>
@@ -32,6 +32,9 @@
 					</tr>
 				</tbody>
 			</table>
+		</form>
+		<form action="/form/">
+			<td colspan="2"><button>Cancel</button></td>
 		</form>
 	</div>
 </body>

@@ -1,16 +1,88 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #14171A;
 }
 
-.container {
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+	.container-fluid {
+		display: block;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.container-fluid {
+		display: block;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+	.container-fluid {
+		display: block;
+	}
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	.container-fluid {
+		display: block;
+	}
+}
+
+.container-fluid {
 	padding: 20px;
 	background-color: #efefef;
 	width: 100%;
 	border-radius: 6px;
 }
 
-.container table {
+.container-fluid input {
+
+}
+
+.container-fluid table {
 	border-collapse: collapse;
 	border: solid 1px;
 }
+
+	.button #list_edit {
+		appearance: button;
+		-moz-appearance: button;
+		-webkit-appearance: button;
+		display: block;
+	}
+
+	.button #list_delete {
+		appearance: button;
+		-moz-appearance: button;
+		-webkit-appearance: button;
+		display: none;
+		padding: 2px 8px;
+	}
+
+.alert-success {
+	background-color: #0C3214;
+	border-color: #296336;
+	padding: 10px;
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+	text-align: center;
+	border-radius: 6px;
+}
+	/* Success Title */
+	.alert-success h1 {
+		color: #28A745;
+	}
+
+	/* Return to Request Form Link*/
+	.alert-success a {
+		color: #00B7FF;
+	}
