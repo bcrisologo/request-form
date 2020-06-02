@@ -41,14 +41,14 @@ requestformController.save = function(req, res) {
 		}
 		else {
 			console.log("Successfully created a new entry: ", req.body);
-			res.redirect("/forms/success");
+			res.redirect("/success");
 		}
 	});
 };
 
 // SUCCESS page load after successful submission =====================================
 requestformController.success = function(req, res) {
-	res.render("../views/forms/success");
+	res.render("../views/success");
 };
 
 // DELETE a single form entry by ID function =====================================
