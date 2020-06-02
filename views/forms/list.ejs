@@ -33,13 +33,12 @@
     				<td><%= submissionform[i].last_name %></td>
     				<td><%= submissionform[i].phone_number %></td>
     				<td><%= submissionform[i].organization %></td>
-                    <!--<td><a href="/forms/edit/<%= submissionform[i]._id %>">Edit</a>-->
                     <td>
                     <form action="/forms/edit/<%= submissionform[i]._id %>">
                         <button id="list_edit" type="submit">Edit</button>
                     </form>
     				<form action="/forms/delete/<%= submissionform[i]._id %>" method="post">
-    					<button id="list_delete" type="submit">Delete</button>
+                    	<button onclick="return confirm('Are you sure you want to delete this user?');" id="list_delete" type="submit">Delete</button>
     				</form>
                     </td>
     			</tr>
@@ -50,5 +49,6 @@
     	<div>No forms submitted.</div> 
 	<% } %>
     </div>
+    </script>
   </body>
 </html>

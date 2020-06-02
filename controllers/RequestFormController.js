@@ -60,7 +60,6 @@ requestformController.delete = function(req, res) {
 			console.log(err);
 		}
 		else {
-			// NEED TO ADD CONFIRMATION POP-UP HERE
 			console.log("Entry Deleted!", req.body);
 			res.redirect("/forms/");
 		}
