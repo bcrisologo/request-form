@@ -3,6 +3,14 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.container {
+	padding: 20px;
+	background-color: #efefef;
+	width: 100%;
+	border-radius: 6px;
+}
+
+.container table {
+	border-collapse: collapse;
+	border: solid 1px;
 }

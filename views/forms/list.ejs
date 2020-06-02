@@ -2,13 +2,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
     <title>List of Submissions</title>
+    <!-- Link to CSS file -->
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1>List of Submitted Forms</h1>
     <div class="container">
-    	<h1>Below is the list of submitted forms</h1>
+    	<h3>Below is the list of submitted forms</h3>
     	<% if( submissionform.length > 0 ) { %> 
     	<table>
     		<thead>
@@ -17,7 +24,7 @@
     				<th>Last Name</th>
     				<th>Phone Number</th>
     				<th>Organization</th>
-    				<th></th>
+    				<th>Actions</th>
     			</tr>
     		</thead>
     		<tbody>
@@ -27,10 +34,15 @@
     				<td><%= submissionform[i].last_name %></td>
     				<td><%= submissionform[i].phone_number %></td>
     				<td><%= submissionform[i].organization %></td>
-                    <td><a href="/forms/edit/<%= submissionform[i]._id %>">Edit</a></td>
+                    <!--<td><a href="/forms/edit/<%= submissionform[i]._id %>">Edit</a>-->
+                    <td>
+                    <form action="/forms/edit/<%= submissionform[i]._id %>">
+                        <button type="submit">Edit</button>
+                    </form>
     				<form action="/forms/delete/<%= submissionform[i]._id %>" method="post">
-    					<td><button type="submit">Delete</button></td>
+    					<button type="submit">Delete</button>
     				</form>
+                    </td>
     			</tr>
     		<% } %>
     		</tbody>
