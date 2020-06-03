@@ -13,7 +13,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid" id="request-list">
         <h1>List of Submitted Forms</h1>
     	<% if( submissionform.length > 0 ) { %> 
     	<table class="table table-dark">
@@ -35,10 +35,10 @@
     				<td><%= submissionform[i].organization %></td>
                     <td>
                     <form action="/forms/edit/<%= submissionform[i]._id %>">
-                        <button id="list_edit" type="submit">Edit</button>
+                        <button id="list_edit" class="btn btn-primary" type="submit">Edit</button>
                     </form>
     				<form action="/forms/delete/<%= submissionform[i]._id %>" method="post">
-                    	<button onclick="return confirm('Are you sure you want to delete this user?');" id="list_delete" type="submit">Delete</button>
+                    	<button onclick="return confirm('Are you sure you want to delete <%= submissionform[i].first_name %> <%= submissionform[i].last_name %>?');" class="btn btn-primary" id="list_delete" type="submit">Delete</button>
     				</form>
                     </td>
     			</tr>
