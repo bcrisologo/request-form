@@ -6,17 +6,14 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-// MongoDB Atlas for db name: "xerox-form" and collection: "requestforms"
-const url_atlas = 'mongodb+srv://yerin:T0rta_0530@bc-cloud-2-vvpqh.mongodb.net/xerox-form?retryWrites=true&w=majority';
-
 // MongoDB for local with db name of requestform
-// const url_local = 'mongodb://localhost/requestform';
+const url_local = 'mongodb://localhost/requestform';
 
 // To remove deprecation warning for findByIdAndUpdate
 mongoose.set('useFindAndModify', false);
 
 // Establishing connection using Mongoose =============================
-mongoose.connect(url_atlas, { useUnifiedTopology: true, useNewUrlParser: true })
+mongoose.connect(url_local, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => console.log('Connection to MongoDB Atlas established'))
   .catch((error) => console.error(error));
 
