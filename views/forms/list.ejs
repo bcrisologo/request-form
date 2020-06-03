@@ -16,7 +16,7 @@
     <div class="container-fluid" id="request-list">
         <h1>List of Submitted Forms</h1>
     	<% if( submissionform.length > 0 ) { %> 
-    	<table class="table table-dark">
+    	<table class="table table-stripped">
     		<thead>
     			<tr>
     				<th scope="col">First Name</th>
@@ -34,12 +34,14 @@
     				<td><%= submissionform[i].phone_number %></td>
     				<td><%= submissionform[i].organization %></td>
                     <td>
-                    <form action="/forms/edit/<%= submissionform[i]._id %>">
-                        <button id="list_edit" class="btn btn-primary" type="submit">Edit</button>
-                    </form>
-    				<form action="/forms/delete/<%= submissionform[i]._id %>" method="post">
-                    	<button onclick="return confirm('Are you sure you want to delete <%= submissionform[i].first_name %> <%= submissionform[i].last_name %>?');" class="btn btn-primary" id="list_delete" type="submit">Delete</button>
-    				</form>
+                    <div class="btn-group btn-group-sm">
+                        <form action="/forms/edit/<%= submissionform[i]._id %>">
+                            <button id="list_edit" class="btn btn-info" type="submit">Edit</button>
+                        </form>
+        				<form action="/forms/delete/<%= submissionform[i]._id %>" method="post">
+                        	<button onclick="return confirm('Are you sure you want to delete <%= submissionform[i].first_name %> <%= submissionform[i].last_name %>?');" class="btn btn-danger" id="list_delete" type="submit">Delete</button>
+        				</form>
+                    </div>
                     </td>
     			</tr>
     		<% } %>

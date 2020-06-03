@@ -4,6 +4,7 @@ body {
   background: #14171A;
 }
 
+/* Section for bootstrap response per screen size ======================== */
 /* Extra small devices (portrait phones, less than 576px) */
 /* No media query for `xs` since this is the default in Bootstrap */
 
@@ -27,7 +28,7 @@ body {
 @media (min-width: 992px) { 
 	#request-form {
 		display: block;
-		width: 50%;
+		width: 45%;
 	}
 }
 
@@ -35,15 +36,32 @@ body {
 @media (min-width: 1200px) {
 	#request-form {
 		display: block;
-		width: 50%;
+		width: 45%;
 	}
 }
+
+/* Class container with different ids starting with "request-" ========================*/
 
 #request-form {
 	padding: 20px;
 	background-color: #efefef;
 	border-radius: 6px;
 }
+
+.vertical-center {
+	height: 100%;
+}
+
+	.vertical-center:before {
+		display: inline-block;
+		vertical-align: middle;    /* vertical alignment of the inline element */
+		height: 100%;
+	}
+
+	.vertical-center > .container-fluid {
+		display: inline-block;
+		vertical-align: middle;
+	}
 
 #request-list {
 	padding: 20px;
@@ -58,25 +76,7 @@ body {
 	border-radius: 6px;
 }
 
-.container-fluid table {
-	border-collapse: collapse;
-	border: solid 1px;
-}
-
-	.button #list_edit {
-		appearance: button;
-		-moz-appearance: button;
-		-webkit-appearance: button;
-		display: block;
-	}
-
-	.button #list_delete {
-		appearance: button;
-		-moz-appearance: button;
-		-webkit-appearance: button;
-		display: inline;
-	}
-
+/* This section is for the success.ejs components ======================== */
 .alert-success {
 	background-color: #0C3214;
 	border-color: #296336;
