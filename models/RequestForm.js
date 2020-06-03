@@ -8,6 +8,7 @@ var RequestFormSchema = new mongoose.Schema({
 	last_name: String,
 	phone_number: String,
 	organization: String,
+	request: String,
 	updated_at: {
 		type: Date,
 		default: Date.now

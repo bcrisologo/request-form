@@ -85,7 +85,8 @@ requestformController.update = function(req, res) {
 			first_name: req.body.first_name,
 			last_name: req.body.last_name,
 			phone_number: req.body.phone_number,
-			organization: req.body.organization
+			organization: req.body.organization,
+			request: req.body.request
 		}
 	}, function(err, submissionform) {
 		if(err) {

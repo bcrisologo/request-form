@@ -23,6 +23,7 @@
     				<th scope="col">Last Name</th>
     				<th scope="col">Phone Number</th>
     				<th scope="col">Organization</th>
+                    <th scope="col">Request</th>
     				<th scope="col">Actions</th>
     			</tr>
     		</thead>
@@ -33,6 +34,7 @@
     				<td><%= submissionform[i].last_name %></td>
     				<td><%= submissionform[i].phone_number %></td>
     				<td><%= submissionform[i].organization %></td>
+                    <td><%= submissionform[i].request %></td>
                     <td>
                     <div class="btn-group btn-group-sm">
                         <form action="/forms/edit/<%= submissionform[i]._id %>">
