@@ -16,7 +16,7 @@
     <div class="container-fluid" id="request-list">
         <h1>List of Submitted Forms</h1>
     	<% if( submissionform.length > 0 ) { %> 
-    	<table class="table table-stripped">
+    	<table class="table table-stripped" id="table-of-submitted-requests">
     		<thead>
     			<tr>
     				<th scope="col">First Name</th>
@@ -38,8 +38,7 @@
                     <td><%= submissionform[i].request %></td>
                     <!-- FULL DATE FROM DATABASE -->
                     <!-- <td><%= submissionform[i].updated_at %></td> -->
-                    <td><%= submissionform[i].updated_at.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " ");
- %></td>
+                    <td><%= submissionform[i].updated_at.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "); %></td>
                     <td>
                     <div class="btn-group btn-group-sm">
                         <form action="/forms/edit/<%= submissionform[i]._id %>">
