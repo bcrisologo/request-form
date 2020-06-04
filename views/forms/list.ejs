@@ -24,6 +24,7 @@
     				<th scope="col">Phone Number</th>
     				<th scope="col">Organization</th>
                     <th scope="col">Request</th>
+                    <th scope="col">Date Modified</th>
     				<th scope="col">Actions</th>
     			</tr>
     		</thead>
@@ -35,6 +36,10 @@
     				<td><%= submissionform[i].phone_number %></td>
     				<td><%= submissionform[i].organization %></td>
                     <td><%= submissionform[i].request %></td>
+                    <!-- FULL DATE FROM DATABASE -->
+                    <!-- <td><%= submissionform[i].updated_at %></td> -->
+                    <td><%= submissionform[i].updated_at.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " ");
+ %></td>
                     <td>
                     <div class="btn-group btn-group-sm">
                         <form action="/forms/edit/<%= submissionform[i]._id %>">
