@@ -103,16 +103,17 @@ requestformController.update = function(req, res) {
 requestformController.search = function(req, res) {
 	RequestForm.find({ 
 		$text: {
-			$search: req.body.searchstring,
+			//$search: req.query,
+			$search: "Levi",
 			$caseSensitive: false
 		}
-	}).exec(function(err, searchstring) {
+	}).exec(function(err, submissionform) {
 		if(err) {
 			console.log(err, "Not matches found from entry");
 		}
 		else {
-			console.log("Search for: ", searchstring);
-			res.render("../views/forms/search", { searchstring: searchstring });
+			console.log("Search for: ", submissionform);
+			res.render("../views/forms/search", { submissionform: "Levi" });
 		}
 	});		
 };

@@ -17,7 +17,7 @@
 	<div class="container-fluid vertical-center" id="search-results">
 		<h1>Search Results for </h1>
 		
-		<% if( submissionform.length > 0 ) { %> 
+		<% if( searchstring.length > 0 ) { %> 
     	<table class="table table-stripped sortable" id="table-of-searched-requests">
     		<thead>
     			<tr>
@@ -31,14 +31,14 @@
     			</tr>
     		</thead>
     		<tbody>
-    			<% for(var i =0; i < submissionform.length; i++) { %>
+    			<% for(var i =0; i < searchstring.length; i++) { %>
     			<tr scope="row">
-    				<td><%= submissionform[i].first_name %></td>
-    				<td><%= submissionform[i].last_name %></td>
-    				<td><%= submissionform[i].phone_number %></td>
-    				<td><%= submissionform[i].organization %></td>
-                    <td><%= submissionform[i].request %></td>
-                    <td><%= submissionform[i].updated_at.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "); %></td>
+    				<td><%= searchstring[i].first_name %></td>
+    				<td><%= searchstring[i].last_name %></td>
+    				<td><%= searchstring[i].phone_number %></td>
+    				<td><%= searchstring[i].organization %></td>
+                    <td><%= searchstring[i].request %></td>
+                    <td><%= searchstring[i].updated_at.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "); %></td>
     			</tr>
     		<% } %>
     		</tbody>
