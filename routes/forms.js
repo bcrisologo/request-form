@@ -41,8 +41,8 @@ router.post('/update/:id', function(req, res) {
 });
 
 // Search function from submitted requests =======================
-  router.get('/search', function(req, res) {
-		requestform.search(req, res);
+router.get('/search', function(req, res) {
+	requestform.search(req, res);
 });
 
 
