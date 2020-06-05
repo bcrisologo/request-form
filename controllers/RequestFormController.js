@@ -99,4 +99,21 @@ requestformController.update = function(req, res) {
 	});
 };
 
+// SEARCH database with the string entered on /forms/list.ejs =====================================
+requestformController.search = function(req, res) {
+	RequestForm.find({}).exec(function(err, searchstring) {
+		$text: {
+			$search: req.body.searchstring
+			$caseSensitive: false
+		}
+	}, function(err, searchstring) {
+		if(err) {
+			console.log(err, "Not matches found from entry");
+		}
+		else {
+			res.render("../views/forms/search");
+		}
+	})
+};
+
 module.exports = requestformController;

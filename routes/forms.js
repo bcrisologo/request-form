@@ -40,4 +40,10 @@ router.post('/update/:id', function(req, res) {
 	requestform.update(req, res);
 });
 
+// Search function from submitted requests =======================
+  router.get('/search', function(req, res) {
+		requestform.search(req, res);
+});
+
+
 module.exports = router;
