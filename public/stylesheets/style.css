@@ -76,6 +76,26 @@ body {
 	border-radius: 6px;
 }
 
+/* For default sorttable.js icon removed ======================== */
+
+table.sortable th::after, th.sorttable_sorted::after, th.sorttable_sorted_reverse::after {
+  content: " ";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+th.sorttable_sorted::after {
+  /* background: url(my-sorted-icon.png);*/
+  background: none;
+  background-size: contain;
+}
+th.sorttable_sorted_reverse::after {
+  /*background: url(my-sorted-reversed-icon.png);*/
+  background: none;
+  background-size: cover;
+}
+#sorttable_sortfwdind, #sorttable_sortrevind { display: none; } 
+
 /* This section is for the success.ejs components ======================== */
 .alert-success {
 	background-color: #0C3214;

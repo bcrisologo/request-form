@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+    <!-- Link for Sort arrows from fontawesome.io -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
     <title>List of Submissions</title>
     <!-- Link to CSS file -->
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -19,12 +22,12 @@
     	<table class="table table-stripped sortable" id="table-of-submitted-requests">
     		<thead>
     			<tr>
-    				<th scope="col">First Name</th>
-    				<th scope="col">Last Name</a></th>
+    				<th scope="col">First Name<i class="fa fa-fw fa-sort"></i></th>
+    				<th scope="col">Last Name<i class="fa fa-fw fa-sort"></a></th>
     				<th scope="col" class="sorttable_nosort">Phone Number</th>
-    				<th scope="col">Organization</th>
+    				<th scope="col">Organization<i class="fa fa-fw fa-sort"></th>
                     <th scope="col" class="sorttable_nosort">Request</th>
-                    <th scope="col">Date Modified</th>
+                    <th scope="col">Date Modified<i class="fa fa-fw fa-sort"></th>
     				<th scope="col" class="sorttable_nosort">Actions</th>
     			</tr>
     		</thead>
@@ -54,6 +57,7 @@
     	<% } else { %>
     	<div>No forms submitted.</div> 
 	<% } %>
+    <!-- Sourced code from https://www.kryogenix.org/code/browser/sorttable/  -->
     <script type="text/javascript" src="/javascripts/sorttable.js"></script>
     </div>
   </body>
