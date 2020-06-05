@@ -14,10 +14,11 @@ On the List of Forms page, all entries in the database are listed as a table wit
 If you select the 'Delete' button, a confirmation pop-up will be triggered.
 ![](https://github.com/bcrisologo/request-form/blob/master/public/images/forms-list-page.png)
 
+**Update (06/04/2020):** Added sort by 'First', 'Last', 'Organization', or 'Date' table headers.  Source code was [referenced here](https://www.kryogenix.org/code/browser/sorttable/).
 
 When choosing 'Edit', you are redirected to the data block's entries and the ability to update the information.
 
-If you choose 'Cancel' on the page, a confirmatio pop-up will be triggered.  If you choose 'Cancel', it will redirect to the List of Forms page.  If you choose 'Update', the entries will be updated in the database.
+If you choose 'Cancel' on the page, a confirmation pop-up will be triggered.  If you choose 'Cancel', it will redirect to the List of Forms page.  If you choose 'Update', the entries will be updated in the database.
 ![](https://github.com/bcrisologo/request-form/blob/master/public/images/edit-form-page.png)
 
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <!-- Required meta tags -->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
@@ -16,15 +16,16 @@
     <div class="container-fluid" id="request-list">
         <h1>List of Submitted Forms</h1>
     	<% if( submissionform.length > 0 ) { %> 
-    	<table class="table table-stripped">
+    	<table class="table table-stripped sortable" id="table-of-submitted-requests">
     		<thead>
     			<tr>
     				<th scope="col">First Name</th>
-    				<th scope="col">Last Name</th>
-    				<th scope="col">Phone Number</th>
+    				<th scope="col">Last Name</a></th>
+    				<th scope="col" class="sorttable_nosort">Phone Number</th>
     				<th scope="col">Organization</th>
-                    <th scope="col">Request</th>
-    				<th scope="col">Actions</th>
+                    <th scope="col" class="sorttable_nosort">Request</th>
+                    <th scope="col">Date Modified</th>
+    				<th scope="col" class="sorttable_nosort">Actions</th>
     			</tr>
     		</thead>
     		<tbody>
@@ -35,6 +36,7 @@
     				<td><%= submissionform[i].phone_number %></td>
     				<td><%= submissionform[i].organization %></td>
                     <td><%= submissionform[i].request %></td>
+                    <td><%= submissionform[i].updated_at.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "); %></td>
                     <td>
                     <div class="btn-group btn-group-sm">
                         <form action="/forms/edit/<%= submissionform[i]._id %>">
@@ -52,7 +54,7 @@
     	<% } else { %>
     	<div>No forms submitted.</div> 
 	<% } %>
+    <script type="text/javascript" src="/javascripts/sorttable.js"></script>
     </div>
-    </script>
   </body>
 </html>

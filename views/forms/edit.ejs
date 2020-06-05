@@ -18,19 +18,19 @@
 		<h1>Edit Request Form</h1>
 		<form action="/forms/update/<%= submissionform._id%>" method="post">
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">First Name</label>
+				<label class="col-sm-2 col-form-label">First</label>
 				<div class="col-sm-10">
 					<input type="text" name="first_name" class="form-control" value="<%= submissionform.first_name %>" />
 				</div>				
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Last Name</label>
+				<label class="col-sm-2 col-form-label">Last</label>
 				<div class="col-sm-10">
 					<input type="text" name="last_name" class="form-control" value="<%= submissionform.last_name %>" />
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Phone Number</label>
+				<label class="col-sm-2 col-form-label">Phone No.</label>
 				<div class="col-sm-10">
 					<input type="text" name="phone_number" class="form-control" value="<%= submissionform.phone_number %>" />
 				</div>
