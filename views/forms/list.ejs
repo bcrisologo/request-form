@@ -18,6 +18,20 @@
   <body>
     <div class="container-fluid" id="request-list">
         <h1>List of Submitted Forms</h1>
+
+        <!-- Test run for search function -->
+        <form action="/forms/search">
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label" for="searchstring">Search Entries</label>
+                <div class="col-sm-10">
+                    <input type="text" name="searchstring" class="form-control" id="searchstring" placeholder="Search Entry">
+                </div>
+                <div class="col-sm-1">
+                    <button class="btn btn-info" type="submit" id="search_string">Search</button>
+                </div>
+            </div>
+        </form>
+
     	<% if( submissionform.length > 0 ) { %> 
     	<table class="table table-stripped sortable" id="table-of-submitted-requests">
     		<thead>
