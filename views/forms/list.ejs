@@ -20,7 +20,7 @@
         <h1>List of Submitted Forms</h1>
 
         <!-- Test run for search function -->
-        <form action="/forms/search">
+        <!-- <form action="/forms/search">
             <div class="form-group row">
                 <label class="col-sm-1 col-form-label" for="searchstring">Search Entries</label>
                 <div class="col-sm-10">
@@ -30,7 +30,16 @@
                     <button class="btn btn-info" type="submit" id="search_string">Search</button>
                 </div>
             </div>
-        </form>
+        </form> -->
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label" for="searchstring">Search Entries</label>
+            <div class="col-sm-10">
+                <input type="text" name="searchstring" class="form-control" id="searchstring" onkeyup="mySearch()" placeholder="Search Entry">
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-info" type="submit" id="search_string">Search</button>
+            </div>
+        </div>
 
     	<% if( submissionform.length > 0 ) { %> 
     	<table class="table table-stripped sortable" id="table-of-submitted-requests">
@@ -73,6 +82,9 @@
 	<% } %>
     <!-- Sourced code from https://www.kryogenix.org/code/browser/sorttable/  -->
     <script type="text/javascript" src="/javascripts/sorttable.js"></script>
+
+    <!-- Code for search table entries function -->
+    <script type="text/javascript" src="/javascripts/searchtable.js"></script>
     </div>
   </body>
 </html>

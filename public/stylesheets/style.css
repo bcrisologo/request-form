@@ -76,6 +76,7 @@ body {
 	border-radius: 6px;
 }
 
+
 /* For default sorttable.js icon removed ======================== */
 
 table.sortable th::after, th.sorttable_sorted::after, th.sorttable_sorted_reverse::after {
@@ -95,6 +96,7 @@ th.sorttable_sorted_reverse::after {
   background-size: cover;
 }
 #sorttable_sortfwdind, #sorttable_sortrevind { display: none; } 
+
 
 /* This section is for the success.ejs components ======================== */
 .alert-success {
