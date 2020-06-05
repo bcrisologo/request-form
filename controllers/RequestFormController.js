@@ -111,6 +111,7 @@ requestformController.search = function(req, res) {
 			console.log(err, "Not matches found from entry");
 		}
 		else {
+			console.log("Search for: ", query);
 			res.render("../views/forms/search", { searchstring: searchstring });
 		}
 	})
