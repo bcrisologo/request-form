@@ -104,12 +104,14 @@ requestformController.search = function(req, res) {
 	/* Reference the input value "query" using req.query */
 	searchString = req.query.query;
 
-	RequestForm.find({ first_name: searchString }).exec(function(err, searchstring) {
+	// RequestForm.find({ first_name: searchString }).exec(function(err, searchstring) {
+	RequestForm.find({searchString}).exec(function(err, searchstring) {
 		if(err) {
 			console.log(err, "Not matches found from entry");
 		}
 		else {
-			console.log("Search for: ", req.query.query);
+			// Should edit console log and remove "Data blocks:" portion
+			console.log("Search for: ", req.query.query, "\nData blocks: ", searchstring);
 			res.render("../views/forms/search", { searchstring: searchstring });
 		}
 	});
