@@ -100,24 +100,8 @@ requestformController.update = function(req, res) {
 };
 
 // SEARCH database with the string entered on /forms/list.ejs =====================================
-/*requestformController.search = function(req, res) {
-	RequestForm.find({ 
-		$text: {
-			//$search: req.query,
-			$search: "Levi",
-			$caseSensitive: false
-		}
-	}).exec(function(err, submissionform) {
-		if(err) {
-			console.log(err, "Not matches found from entry");
-		}
-		else {
-			console.log("Search for: ", submissionform);
-			res.render("../views/forms/search", { submissionform: submissionform });
-		}
-	});		
-};*/
 requestformController.search = function(req, res) {
+	/* Reference the input value "query" using req.query */
 	searchString = req.query.query;
 
 	RequestForm.find({ first_name: searchString }).exec(function(err, searchstring) {
@@ -125,7 +109,7 @@ requestformController.search = function(req, res) {
 			console.log(err, "Not matches found from entry");
 		}
 		else {
-			console.log("Search for: ", searchstring);
+			console.log("Search for: ", req.query.query);
 			res.render("../views/forms/search", { searchstring: searchstring });
 		}
 	});
