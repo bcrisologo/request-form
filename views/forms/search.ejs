@@ -39,6 +39,16 @@
     				<td><%= searchstring[i].organization %></td>
                     <td><%= searchstring[i].request %></td>
                     <td><%= searchstring[i].updated_at.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "); %></td>
+                    <td>
+                    <div class="btn-group btn-group-sm">
+                        <form action="/forms/edit/<%= searchstring[i]._id %>">
+                            <button id="list_edit" class="btn btn-info" type="submit">Edit</button>
+                        </form>
+                        <form action="/forms/delete/<%= searchstring[i]._id %>" method="post">
+                            <button onclick="return confirm('Are you sure you want to delete <%= searchstring[i].first_name %> <%= searchstring[i].last_name %>?');" class="btn btn-danger" id="list_delete" type="submit">Delete</button>
+                        </form>
+                    </div>
+                    </td>
     			</tr>
     		<% } %>
     		</tbody>

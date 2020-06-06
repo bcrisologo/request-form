@@ -117,17 +117,18 @@ requestformController.update = function(req, res) {
 		}
 	});		
 };*/
-
 requestformController.search = function(req, res) {
-	RequestForm.find({ first_name: req.body.searchstring }).exec(function(err, searchstring) {
+	searchString = req.query.query;
+
+	RequestForm.find({ first_name: searchString }).exec(function(err, searchstring) {
 		if(err) {
 			console.log(err, "Not matches found from entry");
 		}
 		else {
-			console.log("Search for: ", req.body);
+			console.log("Search for: ", searchstring);
 			res.render("../views/forms/search", { searchstring: searchstring });
 		}
-	});		
+	});
 };
 
 module.exports = requestformController;
