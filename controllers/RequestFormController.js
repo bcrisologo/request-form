@@ -115,19 +115,7 @@ requestformController.search = function(req, res) {
 	});*/
 
 	// RequestForm.find({ first_name: searchString }).exec(function(err, searchstring) {
-	/*RequestForm.find( { $text: { $search: searchString } } ).exec(function(err, searchstring) {
-		if(err) {
-			console.log(err, "Not matches found from entry");
-		}
-		else {
-			// Should edit console log and remove "Data blocks:" portion
-			console.log("Search for: ", searchString, "\nData blocks: ", searchstring);
-			res.render("../views/forms/search", { searchstring: searchstring });
-		}
-	});*/
-
-	// Still only works for first name
-	RequestForm.find({ first_name: { $regex : new RegExp(searchString, "i") } }).exec(function(err, searchstring) {
+	RequestForm.find( { $text: { $search: searchString } } ).exec(function(err, searchstring) {
 		if(err) {
 			console.log(err, "Not matches found from entry");
 		}
@@ -137,6 +125,18 @@ requestformController.search = function(req, res) {
 			res.render("../views/forms/search", { searchstring: searchstring });
 		}
 	});
+
+	// Still only works for first name, regex is slow for larger database
+	/*RequestForm.find({ first_name: { $regex : new RegExp(searchString, "i") } }).exec(function(err, searchstring) {
+		if(err) {
+			console.log(err, "Not matches found from entry");
+		}
+		else {
+			// Should edit console log and remove "Data blocks:" portion
+			console.log("Search for: ", searchString, "\nData blocks: ", searchstring);
+			res.render("../views/forms/search", { searchstring: searchstring });
+		}
+	});*/
 };
 
 module.exports = requestformController;
