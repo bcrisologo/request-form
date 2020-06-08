@@ -35,8 +35,10 @@ npm install
 ```
 To run the form, simply use:
 ```
-nodemon
+npm start
 ```
+If you have nodemon installed ([link to nodemon usage here](https://www.npmjs.com/package/nodemon)), you can simply run ```nodemon``` to initiate the web server.
+
 The web page can be accessed in the browser via "localhost:3000"
 
 ## Database Notes
