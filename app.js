@@ -11,6 +11,7 @@ const url = 'mongodb://localhost/requestform';
 
 // To remove deprecation warning for findByIdAndUpdate
 mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 // Establishing connection using Mongoose =============================
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
