@@ -15,8 +15,10 @@
 </head>
 <body>
 	<div class="container-fluid vertical-center" id="search-results">
-		<h1>Search Results for </h1>
+		<h1>Search Results</h1>
+        <button><a href="/forms/">Return to Forms List</a></button>
 		
+        <!-- Table List for query results-->
 		<% if( searchstring.length > 0 ) { %> 
     	<table class="table table-stripped sortable" id="table-of-searched-requests">
     		<thead>
