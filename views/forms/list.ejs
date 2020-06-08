@@ -18,6 +18,21 @@
   <body>
     <div class="container-fluid" id="request-list">
         <h1>List of Submitted Forms</h1>
+
+        <!-- Search function -->
+        <form action="/forms/search" method="get">
+            <div class="form-group row">
+                <label class="col-1 col-form-label" for="query">Search Entries</label>
+                <div class="col-sm">
+                    <input type="text" name="query" class="form-control" id="query" placeholder="Search First Name, Last Name, or Organization...">
+                </div>
+                <!-- <div class="col-sm"> -->
+                <div class="text-left col-sm">
+                    <button class="btn btn-info" type="submit" id="query_button">Search</button>
+                </div>
+            </div>
+        </form>
+
     	<% if( submissionform.length > 0 ) { %> 
     	<table class="table table-stripped sortable" id="table-of-submitted-requests">
     		<thead>
@@ -59,6 +74,7 @@
 	<% } %>
     <!-- Sourced code from https://www.kryogenix.org/code/browser/sorttable/  -->
     <script type="text/javascript" src="/javascripts/sorttable.js"></script>
+
     </div>
   </body>
 </html>

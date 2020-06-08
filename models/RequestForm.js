@@ -15,4 +15,7 @@ var RequestFormSchema = new mongoose.Schema({
 	},
 });
 
+// Mongoose index section for querying names and organization
+RequestFormSchema.index({ first_name: "text", last_name: "text", organization: "text" });
+
 module.exports = mongoose.model('RequestForm', RequestFormSchema);

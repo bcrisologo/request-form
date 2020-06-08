@@ -9,8 +9,9 @@ mongoose.Promise = global.Promise;
 // MongoDB for local with db name of requestform
 const url = 'mongodb://localhost/requestform';
 
-// To remove deprecation warning for findByIdAndUpdate
+// To remove deprecation warning for findByIdAndUpdate and ensureIndex
 mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 // Establishing connection using Mongoose =============================
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })

@@ -99,4 +99,21 @@ requestformController.update = function(req, res) {
 	});
 };
 
+// SEARCH database with the string entered on /forms/list.ejs =====================================
+requestformController.search = function(req, res) {
+	/* Reference the input value "query" using req.query */
+	searchString = req.query.query;
+
+	// RequestForm.find({ first_name: searchString }).exec(function(err, searchstring) {
+	RequestForm.find( { $text: { $search: searchString } } ).exec(function(err, searchstring) {
+		if(err) {
+			console.log(err, "Not matches found from entry");
+		}
+		else {
+			console.log("Search for: ", searchString);
+			res.render("../views/forms/search", { searchstring: searchstring });
+		}
+	});
+};
+
 module.exports = requestformController;

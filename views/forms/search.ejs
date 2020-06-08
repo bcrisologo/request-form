@@ -1,0 +1,69 @@
+<!-- /views/forms/search.ejs-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Link to CSS file -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Search Result Forms List</title>
+
+</head>
+<body>
+	<div class="container-fluid vertical-center" id="search-results">
+		<h1>Search Results</h1>
+
+        <!-- Return to forms list -->
+        <div class="form-group row col-sm">
+            <button onclick="window.location.href='/forms/';" type="button" class="btn btn-info">Return to Forms List</a></button>
+        </div>
+		
+        <!-- Table List for query results-->
+		<% if( searchstring.length > 0 ) { %> 
+    	<table class="table table-stripped sortable" id="table-of-searched-requests">
+    		<thead>
+    			<tr>
+    				<th scope="col">First Name<i class="fa fa-fw fa-sort"></i></th>
+    				<th scope="col">Last Name<i class="fa fa-fw fa-sort"></a></th>
+    				<th scope="col" class="sorttable_nosort">Phone Number</th>
+    				<th scope="col">Organization<i class="fa fa-fw fa-sort"></th>
+                    <th scope="col" class="sorttable_nosort">Request</th>
+                    <th scope="col">Date Modified<i class="fa fa-fw fa-sort"></th>
+    				<th scope="col" class="sorttable_nosort">Actions</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<% for(var i =0; i < searchstring.length; i++) { %>
+    			<tr scope="row">
+    				<td><%= searchstring[i].first_name %></td>
+    				<td><%= searchstring[i].last_name %></td>
+    				<td><%= searchstring[i].phone_number %></td>
+    				<td><%= searchstring[i].organization %></td>
+                    <td><%= searchstring[i].request %></td>
+                    <td><%= searchstring[i].updated_at.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "); %></td>
+                    <td>
+                    <div class="btn-group btn-group-sm">
+                        <form action="/forms/edit/<%= searchstring[i]._id %>">
+                            <button id="list_edit" class="btn btn-info" type="submit">Edit</button>
+                        </form>
+                        <form action="/forms/delete/<%= searchstring[i]._id %>" method="post">
+                            <button onclick="return confirm('Are you sure you want to delete <%= searchstring[i].first_name %> <%= searchstring[i].last_name %>?');" class="btn btn-danger" id="list_delete" type="submit">Delete</button>
+                        </form>
+                    </div>
+                    </td>
+    			</tr>
+    		<% } %>
+    		</tbody>
+    	</table>
+    	<% } else { %>
+    	<div>No forms found</div> 
+	<% } %>
+    <!-- Sourced code from https://www.kryogenix.org/code/browser/sorttable/  -->
+    <script type="text/javascript" src="/javascripts/sorttable.js"></script>
+	</div>
+</body>
+</html>
