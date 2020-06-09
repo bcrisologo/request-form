@@ -15,7 +15,7 @@ mongoose.set('useCreateIndex', true);
 
 // Establishing connection using Mongoose =============================
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
-  .then(() => console.log('Connection to MongoDB Atlas established'))
+  .then(() => console.log('Connection to MongoDB established'))
   .catch((error) => console.error(error));
 
 var indexRouter = require('./routes/index');
