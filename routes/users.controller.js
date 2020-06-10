@@ -21,4 +21,4 @@ router.get('/forms', function(req, res, next) {
 	.catch(next);
 });
 
-module.exports = adminAuthenticate;
+module.exports = router;
