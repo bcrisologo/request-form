@@ -27,7 +27,8 @@ mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var forms = require('./routes/forms');		// For routing submitted forms
-var login = require('./routes/users.controller');
+
+var login = require('./routes/users.controller');	// Test for authentication
 
 var app = express();
 
@@ -44,13 +45,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Section for using authentication modules =============================
 app.use(cors());
 app.use(jwt());				// use JWT auth to secure the api
+app.use('/login', login);	// test authentication
 app.use(errorHandler);		// global error handler
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/forms', forms);			// For using forms.js route
-
-app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
