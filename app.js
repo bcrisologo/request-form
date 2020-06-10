@@ -6,12 +6,13 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-// Section for authentication modules required
+// Section for authentication modules required =============================
+require('rootpath')();
 const cors = require('cors');
 const jwt = require('_helpers/jwt');
 const errorHandler = require('_helpers/error-handler');
 
-// MongoDB for local with db name of requestform
+// MongoDB for local with db name of requestform =============================
 const url = 'mongodb://localhost/requestform';
 
 // To remove deprecation warning for findByIdAndUpdate and ensureIndex
@@ -29,7 +30,7 @@ var forms = require('./routes/forms');		// For routing submitted forms
 
 var app = express();
 
-// view engine setup
+// view engine setup =============================
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -39,9 +40,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Section for using authentication modules
+// Section for using authentication modules =============================
 app.use(cors());
 app.use(jwt());				// use JWT auth to secure the api
+app.use(errorHandler);		// global error handler
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
