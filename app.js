@@ -6,6 +6,11 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
+// Section for authentication modules required
+const cors = require('cors');
+const jwt = require('_helpers/jwt');
+const errorHandler = require('_helpers/error-handler');
+
 // MongoDB for local with db name of requestform
 const url = 'mongodb://localhost/requestform';
 
@@ -33,6 +38,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Section for using authentication modules
+app.use(cors());
+app.use(jwt());				// use JWT auth to secure the api
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
