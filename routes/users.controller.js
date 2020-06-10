@@ -5,7 +5,7 @@ var router = express.Router();
 
 // route for the user.service.js
 // contains the hardcoded admin user
-var adminService = require('../controllers/user.service.js');
+var adminService = require('../controllers/user.service');
 
 // routes ==========================
 
