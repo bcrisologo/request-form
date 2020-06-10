@@ -46,11 +46,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use(jwt());				// use JWT auth to secure the api
 app.use('/login', login);	// test authentication
-app.use(errorHandler);		// global error handler
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/forms', forms);			// For using forms.js route
+
+app.use(errorHandler);		// global error handler
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -69,9 +70,9 @@ app.use(function(err, req, res, next) {
 });
 
 // For user authentication section =============================
-var port = process.env.NODE_ENV === 'production' ? 80: 4000;
+/*var port = process.env.NODE_ENV === 'production' ? 80: 4000;
 var server = app.listen(port, function() {
 	console.log('Server listening for authentication on port ' + port);
-});
+});*/
 
 module.exports = app;
