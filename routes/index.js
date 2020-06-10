@@ -13,4 +13,9 @@ router.get('/success', function(req, res) {
 	requestform.success(req, res);
 });
 
+/* Direct to Admin Login Page */
+router.get('/login', function(req, res) {
+	res.render('login');
+})
+
 module.exports = router;
