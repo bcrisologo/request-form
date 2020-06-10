@@ -17,7 +17,7 @@ router.post('/login', function(req, res, next) {
 
 router.get('/forms', function(req, res, next) {
 	adminService.getAll()
-	.then(users => res.json(users))
+	.then(users => res.render("../views/forms/list", users)) //res.json(users))
 	.catch(next);
 });
 
