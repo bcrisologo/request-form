@@ -8,9 +8,9 @@ mongoose.Promise = global.Promise;
 
 // Section for authentication modules required =============================
 require('rootpath')();
-const cors = require('cors');
-const jwt = require('_helpers/jwt');
-const errorHandler = require('_helpers/error-handler');
+var cors = require('cors');
+var jwt = require('_helpers/jwt');
+var errorHandler = require('_helpers/error-handler');
 
 // MongoDB for local with db name of requestform =============================
 const url = 'mongodb://localhost/requestform';
@@ -27,6 +27,7 @@ mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var forms = require('./routes/forms');		// For routing submitted forms
+var login = require('./routes/users.controller');
 
 var app = express();
 
@@ -47,8 +48,9 @@ app.use(errorHandler);		// global error handler
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// For using forms.js route
-app.use('/forms', forms);						
+app.use('/forms', forms);			// For using forms.js route
+
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -64,6 +66,12 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// For user authentication section =============================
+var port = process.env.NODE_ENV === 'production' ? 80: 4000;
+var server = app.listen(port, function() {
+	console.log('Server listening for authentication on port ' + port);
 });
 
 module.exports = app;
