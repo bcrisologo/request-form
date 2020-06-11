@@ -21,11 +21,5 @@ router.get('/login', function(req, res) {
 	res.render('login');
 });
 
-router.post('/login', function(req, res, next) {
-	userService.authenticate(req.body)
-	//.then(user => res.json(user))
-	.then( console.log(req.body), res.redirect('/forms'))
-	.catch(next);
-});
 
 module.exports = router;
