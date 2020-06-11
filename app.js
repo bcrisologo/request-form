@@ -9,6 +9,10 @@ mongoose.Promise = global.Promise;
 // MongoDB for local with db name of requestform
 const url = 'mongodb://localhost/requestform';
 
+// JWT setup files ================================
+const jwt = require('./_helpers/jwt');
+const errorHandler = require('./_helpers/error-handler');
+
 // To remove deprecation warning for findByIdAndUpdate and ensureIndex
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -33,6 +37,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// use JWT auth to secure the api
+app.use(jwt());
+// app.use(errorHandler);				// global error handler
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
