@@ -41,6 +41,7 @@ router.post('/update/:id', function(req, res) {
 });
 
 // Search function from submitted requests =======================
+// Directs to search page view file
 router.get('/search', function(req, res) {
 	requestform.search(req, res);
 });
