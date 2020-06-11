@@ -82,14 +82,12 @@ body {
 	border-radius: 6px;
 }
 
-/* For Admin Login Form page */
-
+/* Admin Login page */
 #admin-login-form {
 	padding: 20px;
 	background-color: #efefef;
 	border-radius: 6px;
 }
-
 
 /* For default sorttable.js icon removed ======================== */
 
