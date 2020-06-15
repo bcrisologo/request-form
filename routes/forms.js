@@ -57,4 +57,9 @@ router.get('/adminsettings', function(req, res) {
 	admincontroller.edit(req, res);
 });
 
+// POST Admin settings page for update
+router.post('/adminsettings', function(req, res) {
+	admincontroller.update(req, res);
+});
+
 module.exports = router;
