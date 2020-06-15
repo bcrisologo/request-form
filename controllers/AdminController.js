@@ -23,6 +23,8 @@ adminController.edit = function(req, res) {
 // UPDATE admin username and password =============================
 adminController.update = function(req, res) {
 	AdminModel.findOneAndUpdate({ username: 'admin'}, {
+		// NEED TO CHANGE THIS TO UPDATE SALT AND HASH FOR PASSWORD
+		// ALL THIS DOES IS INSERT NEW PASSOWRD
 		$set: {
 			password: req.body.password
 		}
