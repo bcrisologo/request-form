@@ -1,7 +1,7 @@
-# Request-Form
+# Request-Form with Administrator Authorization
 A simple request form template for businesses that provide services.
 
-**Update (06/04/2020):** Added sort by 'First', 'Last', 'Organization', or 'Date' table headers.  Source code was [referenced here](https://www.kryogenix.org/code/browser/sorttable/).
+**Update (06/04/2020):** Added sort by 'First', 'Last', 'Organization', or 'Date' table headers.  
 
 **Update (06/07/2020):** Updated page to include Search from Forms List page.
 
@@ -58,9 +58,7 @@ There is the option of changing from local to MongoDB Atlas by changing the line
 ```javascript
 const url = 'mongodb+srv://<username>:<password>@cluster0.mongodb.net/request-form?retryWrites=true&w=majority';
 ```
-You will need to setup the correct database user credentials and ensure that you have a MongoDB Atlas account.
-
-There are articles online that shows how to setup the connection to Atlas similar to [this tutorial](https://studio3t.com/knowledge-base/articles/connect-to-mongodb-atlas/).
+You will need to setup the correct database user credentials and ensure that you have a MongoDB Atlas account.  There are articles online that shows how to setup the connection to Atlas similar to [this tutorial](https://studio3t.com/knowledge-base/articles/connect-to-mongodb-atlas/).
 
 ## Admin Login Notes
 The default procedure is for the route file ```/routes/index.js``` to create the admin user with the username ```admin``` and password ```testing``` with a hash and salt field in the Schema.  You can edit the default username and password creation as seen in the line below:
@@ -68,4 +66,7 @@ The default procedure is for the route file ```/routes/index.js``` to create the
 await AdminModel.register({username: 'admin', active: false}, 'testing');
 ```
 
+## Footnotes:
 This project was built using Express, NodeJS, MongoDB and Bootstrap.  Passport is the choice of authorization for the Admin login.
+
+Source code for sorting table arrangement was [referenced here](https://www.kryogenix.org/code/browser/sorttable/).
