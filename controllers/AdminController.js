@@ -10,12 +10,12 @@ var adminController = {};
 
 // EDIT admin page render =============================
 adminController.edit = function(req, res) {
-	AdminModel.findOne({ _id: req.params.id }).exec(function(err, user) {
+	AdminModel.findOne({ _id: req.params.id }).exec(function(err, adminuser) {
 		if(err) {
 			console.log("Error: ", err)
 		}
 		else {
-			res.render("../views/forms/adminsettings", { user: user });
+			res.render("../views/forms/adminsettings", { adminuser: adminuser });
 		}
 	});
 };
@@ -27,10 +27,10 @@ adminController.update = function(req, res) {
 			username: req.body.username,
 			password: req.body.password
 		}
-	}, function(err, user) {
+	}, function(err, adminuser) {
 		if(err) {
 			console.log("Error: ", err);
-			res.render("../views/forms/adminsettings", { user: user });
+			res.render("../views/forms/adminsettings", { adminuser: adminuser });
 		}
 		else {
 			res.redirect("/forms");
