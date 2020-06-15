@@ -61,7 +61,7 @@ requestformController.delete = function(req, res) {
 		}
 		else {
 			console.log("Entry Deleted!");
-			res.redirect("/forms/");
+			res.redirect("/forms");
 		}
 	});
 };
