@@ -188,6 +188,10 @@ th.sorttable_sorted_reverse::after {
 }
 #sorttable_sortfwdind, #sorttable_sortrevind { display: none; } 
 
+/* For the authenticate.js font color change ======================== */
+#error-message {
+	color: red;
+}
 
 /* This section is for the success.ejs components ======================== */
 .alert-success {
