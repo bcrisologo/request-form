@@ -1,14 +1,16 @@
 # Request-Form with Administrator Authorization
-A simple request form template for businesses that provide services.
+A simple request form template for businesses that provide services to clients.  An administrator is also created to access the submitted forms that are restricted access from the general public.
 
-**Update (06/04/2020):** Added sort by 'First', 'Last', 'Organization', or 'Date' table headers.  
+* **Update (06/04/2020):** 
+  * Added sort by 'First', 'Last', 'Organization', or 'Date' table headers.  
 
-**Update (06/07/2020):** Updated page to include Search from Forms List page.
+* **Update (06/07/2020):** 
+  * Updated Forms List page to include Search through Names and Organization fields.
 
-**Update (06/14/2020):** 
-* Added an "Admin Login" feature that restricts access of the submitted forms list ('/forms') unless Admin user has inserted credentials.
-* All pages (except for the Success page and the Login page) have a navigation bar placing the "Company Name"
-* All pages that has access to the database has a "Logout" button on the navigation bar.
+* **Update (06/14/2020):** 
+  * Added an "Admin Login" feature that restricts access of the submitted forms list ('/forms') unless Admin user has inserted credentials.
+  * All pages (except for the Success page and the Login page) have a navigation bar placing the "Company Name"
+  * All pages that has access to the database has a "Logout" button on the navigation bar.
 
 Default index page as shown below.
 ![](https://github.com/bcrisologo/request-form/blob/master/public/images/default-index-page.png)
@@ -37,6 +39,8 @@ The Forms List page has a Search bar that can query keywords in the First Name, 
 
 
 ## Setup
+You need MongoDB installed locally to be able to generate the database configured.
+
 Install the necessary packages and dependencies.
 ```
 npm install
@@ -61,12 +65,18 @@ const url = 'mongodb+srv://<username>:<password>@cluster0.mongodb.net/request-fo
 You will need to setup the correct database user credentials and ensure that you have a MongoDB Atlas account.  There are articles online that shows how to setup the connection to Atlas similar to [this tutorial](https://studio3t.com/knowledge-base/articles/connect-to-mongodb-atlas/).
 
 ## Admin Login Notes
-The default procedure is for the route file ```/routes/index.js``` to create the admin user with the username ```admin``` and password ```testing``` with a hash and salt field in the Schema.  You can edit the default username and password creation as seen in the line below:
+The default procedure is for the route file ```/routes/index.js``` to create the admin user with the username ```admin``` and password with a hash and salt field in the Schema when the login page is loaded.  There is also a check that prevents the recreation of the same user upon reboot of the web server.
+
+You can edit the default username and password creation as seen in the line below:
 ```javascript
 await AdminModel.register({username: 'admin', active: false}, 'testing');
 ```
 
 ## Footnotes:
-This project was built using Express, NodeJS, MongoDB and Bootstrap.  Passport is the choice of authorization for the Admin login.
+This project was built using Express, NodeJS, MongoDB and Bootstrap.  Passport is the choice of authorization access for the Admin login.
 
 Source code for sorting table arrangement was [referenced here](https://www.kryogenix.org/code/browser/sorttable/).
+
+Possible features to be implemented:
+- [ ] Allow the Admin to change username and password once logged in
+- [ ] Add different levels of authorized users (Admin of page and another lower-level access user)
