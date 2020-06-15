@@ -22,9 +22,8 @@ adminController.edit = function(req, res) {
 
 // UPDATE admin username and password =============================
 adminController.update = function(req, res) {
-	AdminModel.findByIdAndUpdate(req.params.id, {
+	AdminModel.findOneAndUpdate({ username: 'admin'}, {
 		$set: {
-			username: req.body.username,
 			password: req.body.password
 		}
 	}, function(err, adminuser) {
