@@ -9,7 +9,7 @@ var passport = require('passport');
 router.use(passport.initialize());
 router.use(passport.session());
 
-// Admin model loading =======================
+// Admin schema model loading =======================
 var AdminModel = require("../models/AdminModel.js");
 
 // Passport Local Authentication =======================
@@ -28,22 +28,17 @@ passport.deserializeUser(AdminModel.deserializeUser(function(id, done) {
 var connectEnsureLogin = require('connect-ensure-login');
 
 
-
+// ROUTES Point ========================
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
 /* REDIRECT to Success page after successful submission */
 router.get('/success', function(req, res) {
 	requestform.success(req, res);
 });
-
-/* GET login page */
-/*router.get('/login', function(req, res) {
-	res.render('login');
-});*/
 
 // GET login page.  ***ENTRY POINT*** ======================= 
 router.get('/login', function(req, res) {
@@ -56,10 +51,10 @@ router.get('/login', function(req, res) {
 
 		// Checks if admin account already exists
 		if(user) {
+			// Need to refine this to skip any logging when Admin already exists
 			console.log('Admin already exists');
 		} else {
 			// Creates user admin if it doesn't exist
-			// Still a bug that keeps checking this section after first server startup
 			await AdminModel.register({username: 'admin', active: false}, 'testing');
 			console.log("Created Admin");
 		}
@@ -67,7 +62,7 @@ router.get('/login', function(req, res) {
 	});
 });
 
-// POST for login page
+// POST for login page =======================
 router.post('/login', function(req, res, next) {
 	passport.authenticate('local', function(err, user, info) {
 		if(err) {
@@ -87,7 +82,7 @@ router.post('/login', function(req, res, next) {
 	})(req, res, next);
 });
 
-// GET back to login page after LOGOUT 
+// GET back to login page after LOGOUT =======================
 router.get('/logout', function(req, res) {
 	req.logout();
 	res.redirect('/login');
