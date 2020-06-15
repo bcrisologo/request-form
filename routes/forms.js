@@ -7,83 +7,11 @@ var router = express.Router();
 
 var requestform = require("../controllers/RequestFormController.js");
 
-/*
-// Passport setup =======================
-var passport = require('passport');
-
-router.use(passport.initialize());
-router.use(passport.session());
-
-// Admin model loading =======================
-var AdminModel = require("../models/AdminModel.js");
-
-// Passport Local Authentication =======================
-passport.use(AdminModel.createStrategy());
-
-passport.serializeUser(AdminModel.serializeUser(function(user, done) {
-	done(null, user._id);
-}));
-passport.deserializeUser(AdminModel.deserializeUser(function(id, done) {
-	AdminModel.findById(id, function(err, user) {
-		done(err, user);
-	});
-}));
-*/
-
 // Middleware for ensuring connection when logged in ========================
 var connectEnsureLogin = require('connect-ensure-login');
 
 
 // CRUD functions reroute =====================================================
-
-// GET login page.  ***ENTRY POINT*** ======================= 
-/*
-router.get('/login', function(req, res) {
-	// res.render('login');
-	AdminModel.findOne({ username: 'tester' }, async function(err, user) {
-		// Error in accessing login
-		if(err) {
-			console.log('Error in loading: ', err);
-		} 
-
-		// Checks if admin account already exists
-		if(user) {
-			console.log('Admin already exists');
-		} else {
-			// Creates user admin if it doesn't exist
-			// Still a bug that keeps checking this section after first server startup
-		}
-		res.render('login');
-	});
-});
-*/
-
-// POST for login page
-/*router.post('/login', function(req, res, next) {
-	passport.authenticate('local', function(err, user, info) {
-		if(err) {
-			return next(err);
-		}
-
-		if(!user) {
-			return res.redirect('/login?info=' + info);
-		}
-
-		req.logIn(user, function(err) {
-			if(err) {
-				return next(err);
-			}
-			return res.redirect('/');
-		});
-	})(req, res, next);
-});
-
-// GET back to login page after LOGOUT 
-router.get('/logout', function(req, res) {
-	req.logout();
-	res.redirect('/login');
-});
-*/
 
 // GET all forms =====================================================
 // Redirecting to list.ejs per Controller file		
