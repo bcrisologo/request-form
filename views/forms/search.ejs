@@ -14,12 +14,22 @@
 
 </head>
 <body>
+
+    <!-- NAVIGATION BAR SECTION -->
+    <nav class="navbar navbar-light justify-content-between">
+        <a class="navbar-brand" href="#">Your Company Name</a>
+        <form action="/logout" method="get" class="form-inline">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+    </nav>
+
+    <!-- MAIN BODY -->
 	<div class="container-fluid vertical-center" id="search-results">
 		<h1>Search Results</h1>
 
         <!-- Return to forms list -->
         <div class="form-group row col-sm">
-            <button onclick="window.location.href='/forms/';" type="button" class="btn btn-info">Return to Forms List</a></button>
+            <button onclick="window.location.href='/forms';" type="button" class="btn btn-info">Return to Forms List</a></button>
         </div>
 		
         <!-- Table List for query results-->

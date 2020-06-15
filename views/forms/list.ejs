@@ -16,13 +16,20 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div class="container-fluid" id="request-list">
-        <h1>List of Submitted Forms</h1>
 
-        <!-- TEMPORARY LOGOUT PAGE -->
-        <form action="/logout" method="get">
-            <button class="btn btn-info" type="submit">Logout</button>
+    <!-- NAVIGATION BAR SECTION -->
+    <nav class="navbar navbar-light justify-content-between">
+        <a class="navbar-brand" href="#">Your Company Name</a>
+        <form action="/logout" method="get" class="form-inline">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
         </form>
+    </nav>
+
+    
+    <div class="container-fluid" id="request-list">
+
+        <!-- Title Header -->
+        <h1>List of Submitted Forms</h1>
 
         <!-- Search function -->
         <form action="/forms/search" method="get">
