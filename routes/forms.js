@@ -7,6 +7,7 @@ var router = express.Router();
 
 var requestform = require("../controllers/RequestFormController.js");
 
+/*
 // Passport setup =======================
 var passport = require('passport');
 
@@ -27,13 +28,16 @@ passport.deserializeUser(AdminModel.deserializeUser(function(id, done) {
 		done(err, user);
 	});
 }));
+*/
 
 // Middleware for ensuring connection when logged in ========================
 var connectEnsureLogin = require('connect-ensure-login');
 
+
 // CRUD functions reroute =====================================================
 
 // GET login page.  ***ENTRY POINT*** ======================= 
+/*
 router.get('/login', function(req, res) {
 	// res.render('login');
 	AdminModel.findOne({ username: 'tester' }, async function(err, user) {
@@ -49,11 +53,13 @@ router.get('/login', function(req, res) {
 			// Creates user admin if it doesn't exist
 			// Still a bug that keeps checking this section after first server startup
 		}
+		res.render('login');
 	});
 });
+*/
 
 // POST for login page
-router.post('/login', function(req, res, next) {
+/*router.post('/login', function(req, res, next) {
 	passport.authenticate('local', function(err, user, info) {
 		if(err) {
 			return next(err);
@@ -77,6 +83,7 @@ router.get('/logout', function(req, res) {
 	req.logout();
 	res.redirect('/login');
 });
+*/
 
 // GET all forms =====================================================
 // Redirecting to list.ejs per Controller file		
