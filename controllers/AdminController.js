@@ -30,10 +30,12 @@ adminController.update = function(req, res) {
 	}, function(err, user) {
 		if(err) {
 			console.log("Error: ", err);
-			res.render(("../views/forms/adminsettings", { user: user });
+			res.render("../views/forms/adminsettings", { user: user });
 		}
 		else {
 			res.redirect("/forms");
 		}
 	});
 };
+
+module.exports = adminController;
