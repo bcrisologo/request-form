@@ -11,7 +11,7 @@ var RequestForm = require("../models/RequestForm");
 // controller object for CRUD
 var requestformController = {};
 
-// CRUD functionss =====================================================
+// CRUD functions =====================================================
 
 // READ all list of entries =====================================
 requestformController.list = function(req, res) {
