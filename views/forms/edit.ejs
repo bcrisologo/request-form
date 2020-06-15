@@ -14,6 +14,16 @@
 	<title>Edit Request Form</title>
 </head>
 <body>
+
+	<!-- NAVIGATION BAR SECTION -->
+    <nav class="navbar navbar-light bg-primary justify-content-between">
+        <a class="navbar-brand" href="#">Your Company Name</a>
+        <form action="/logout" method="get" class="form-inline">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+    </nav>
+
+    <!-- MAIN BODY -->
 	<div class="container-fluid" id="request-edit">
 		<h1>Edit Request Form</h1>
 		<form action="/forms/update/<%= submissionform._id%>" method="post">

@@ -14,6 +14,16 @@
     <title>Submission Form Page</title>
   </head>
   <body>
+
+    <!-- NAVIGATION BAR SECTION -->
+    <nav class="navbar navbar-light bg-primary justify-content-between">
+        <a class="navbar-brand" href="#">Your Company Name</a>
+        <form action="/login" method="get" class="form-inline">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Admin Login</button>
+        </form>
+    </nav>
+
+    <!-- MAIN BODY -->
     <div class="container-fluid vertical-center" id="request-form">
         <h1>Request Form</h1>
         <p><span>Please enter the information on the input fields so your order can be processed</span></p>
@@ -54,6 +64,8 @@
                 </div>
             </div>
         </form>
+
+        <script type="text/javascript" src="/javascripts/authenticate.js"></script>
     </div>
   </body>
 </html>

@@ -6,14 +6,21 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-// MongoDB for local with db name of requestform
+// MongoDB for local with db name of requestform =======================================
 const url = 'mongodb://localhost/requestform';
 
-// To remove deprecation warning for findByIdAndUpdate and ensureIndex
+// To remove deprecation warning for findByIdAndUpdate and ensureIndex =======================================
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
-// Establishing connection using Mongoose =============================
+// Setup express-session =======================================
+var expressSession = require('express-session')({
+	secret: 'secret',		// Should change this value
+	resave: false,
+	saveUninitialized: false
+});
+
+// Establishing connection using Mongoose =======================================
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => console.log('Connection to MongoDB established'))
   .catch((error) => console.error(error));
@@ -21,6 +28,7 @@ mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var forms = require('./routes/forms');		// For routing submitted forms
+var login = require('./routes/forms');
 
 var app = express();
 
@@ -34,10 +42,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(expressSession);			// expressSession enabled ===================
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// For using forms.js route
-app.use('/forms', forms);						
+
+app.use('/forms', forms);			// For using forms.js route					
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
