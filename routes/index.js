@@ -3,9 +3,6 @@ var router = express.Router();
 
 var requestform = require("../controllers/RequestFormController.js");
 
-// user.service.js controller file
-var userService = require('../controllers/user.service.js');
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
