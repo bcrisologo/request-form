@@ -26,11 +26,6 @@ router.post('/save', connectEnsureLogin.ensureLoggedIn(), function(req, res) {
 	requestform.save(req, res);
 });
 
-// SUCCESS page loads after submitting form =======================
-/*router.get('/success', function(req, res) {
-	requestform.success(req, res);
-});*/
-
 // Delete a submitted request =======================
 router.post('/delete/:id', connectEnsureLogin.ensureLoggedIn(), function(req, res, next) {
 	requestform.delete(req, res);
@@ -60,6 +55,11 @@ router.get('/adminsettings', function(req, res) {
 // POST Admin settings page for update
 router.post('/adminsettings', function(req, res) {
 	admincontroller.update(req, res);
+});
+
+// GET Admin password change SUCCESS page
+router.get('/success', function(req, res) {
+	admincontroller.success(req, res);
 });
 
 module.exports = router;
