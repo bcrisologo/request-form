@@ -34,7 +34,8 @@ adminController.update = function(req, res) {
 			adminuser.changePassword(oldPassword, newPassword, function(err) {
 				if(err) {
 					if(err.name === 'IncorrectPasswordError') {
-						res.json({ message: 'Incorrect password' }); // Return error
+						//res.json({ message: 'Incorrect password' }); // Return error
+						console.log("Incorrect Old Password entry");
  					}
  					else {
  						res.json({ message: 'Something went wrong!! Please try again after sometimes.' });
@@ -51,14 +52,14 @@ adminController.update = function(req, res) {
 		}
 	});
 
-	/*  // THIS WORKS!!! But this is without old password verification
+	/*  // This setup works is without old password verification
 	AdminModel.findOneAndUpdate({ username: 'admin' })
 	.then(function(adminuser) {
 		if(adminuser) {
-			adminuser.setPassword(req.body.password, function() {
+			adminuser.setPassword(req.body.new_password, function() {
 				adminuser.save();
 				console.log("Successful password change!");
-				res.render("../views/forms");
+				res.redirect("/forms/adminsettings");
 			});
 		}
 		else {
