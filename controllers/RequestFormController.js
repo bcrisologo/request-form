@@ -94,7 +94,7 @@ requestformController.update = function(req, res) {
 			res.render("../views/forms/edit", { submissionform: submissionform });
 		}
 		else {
-			res.redirect("/forms/");
+			res.redirect("/forms");
 		}
 	});
 };

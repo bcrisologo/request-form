@@ -15,7 +15,7 @@ adminController.edit = function(req, res) {
 			console.log("Error: ", err)
 		}
 		else {
-			res.render("../views/forms/adminsettings", { adminuser: adminuser });
+			res.render("../views/adminsettings/adminsettings", { adminuser: adminuser });
 		}
 	});
 };
@@ -30,13 +30,13 @@ adminController.update = function(req, res) {
 	AdminModel.findOne({ username: 'admin' })
 	.then(function(adminuser) {
 		if(adminuser) {
-			console.log(oldPassword, newPassword)
+			// console.log(oldPassword, newPassword)
 			adminuser.changePassword(oldPassword, newPassword, function(err) {
 				if(err) {
 					if(err.name === 'IncorrectPasswordError') {
 						//res.json({ message: 'Incorrect password' }); // Return error
 						console.log("Incorrect old password entry");
-						res.redirect("/forms/adminsettings");
+						res.redirect("/adminsettings");
  					}
  					else {
  						res.json({ message: 'Something went wrong!! Please try again after sometimes.' });
@@ -45,7 +45,7 @@ adminController.update = function(req, res) {
 				else {
 					console.log("Success in password change!")
 					// Need to redirect to a success password change page
-					res.redirect("/forms/success");
+					res.redirect("/adminsettings/success");
 				}
 			});
 		}
@@ -74,7 +74,7 @@ adminController.update = function(req, res) {
 };
 
 adminController.success = function(req, res) {
-	res.render("../views/forms/change-success");
+	res.render("../views/adminsettings/change-success");
 };
 
 module.exports = adminController;
