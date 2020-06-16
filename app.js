@@ -27,8 +27,8 @@ mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var forms = require('./routes/forms');		// For routing submitted forms
-var login = require('./routes/forms');
+var forms = require('./routes/forms');		              // For routing submitted forms
+var adminsettings = require('./routes/adminsettings');  // admin settings page
 
 var app = express();
 
@@ -42,12 +42,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(expressSession);			// expressSession enabled ===================
+app.use(expressSession);			                 // expressSession enabled 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-app.use('/forms', forms);			// For using forms.js route					
+app.use('/forms', forms);			                // For using forms.js route			
+app.use('/adminsettings', adminsettings);     // admin settings page
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
