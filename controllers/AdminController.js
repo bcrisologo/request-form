@@ -35,7 +35,8 @@ adminController.update = function(req, res) {
 				if(err) {
 					if(err.name === 'IncorrectPasswordError') {
 						//res.json({ message: 'Incorrect password' }); // Return error
-						console.log("Incorrect Old Password entry");
+						console.log("Incorrect old password entry");
+						res.redirect("/forms/adminsettings")
  					}
  					else {
  						res.json({ message: 'Something went wrong!! Please try again after sometimes.' });
@@ -43,6 +44,7 @@ adminController.update = function(req, res) {
 				}
 				else {
 					console.log("Success in password change!")
+					// Need to redirect to a success password change page
 					res.redirect("/forms/adminsettings");
 				}
 			});
