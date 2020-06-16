@@ -7,8 +7,6 @@ var router = express.Router();
 
 var requestform = require("../controllers/RequestFormController.js");
 
-var admincontroller = require("../controllers/AdminController.js");
-
 // Middleware for ensuring connection when logged in ========================
 var connectEnsureLogin = require('connect-ensure-login');
 
@@ -47,19 +45,5 @@ router.get('/search', connectEnsureLogin.ensureLoggedIn(), function(req, res) {
 	requestform.search(req, res);
 });
 
-// GET Admin settings page
-router.get('/adminsettings', function(req, res) {
-	admincontroller.edit(req, res);
-});
-
-// POST Admin settings page for update
-router.post('/adminsettings', function(req, res) {
-	admincontroller.update(req, res);
-});
-
-// GET Admin password change SUCCESS page
-router.get('/success', function(req, res) {
-	admincontroller.success(req, res);
-});
 
 module.exports = router;
