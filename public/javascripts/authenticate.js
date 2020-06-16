@@ -11,15 +11,3 @@ if(info) {
 	errorMessage.innerText = "Incorrect Username or Password";
 	errorMessage.style.display = "block";
 }
-
-
-// For password change error checks ===================================
-
-const errorParams = new URLSearchParams(window.location.search);
-const infotwo = errorParams.get('err');
-
-if(infotwo) {
-	const passwordErrorMessage = document.getElementById("passwordchange-error-message");
-	passwordErrorMessage.innerText = "Incorrect current password";
-	passwordErrorMessage.style.display = "block";
-}
