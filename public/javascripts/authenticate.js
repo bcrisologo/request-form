@@ -15,7 +15,10 @@ if(info) {
 
 // For password change error checks ===================================
 
-if(info) {
+const errorParams = new URLSearchParams(window.location.search);
+const infotwo = errorParams.get('err');
+
+if(infotwo) {
 	const passwordErrorMessage = document.getElementById("passwordchange-error-message");
 	passwordErrorMessage.innerText = "Incorrect current password";
 	passwordErrorMessage.style.display = "block";
