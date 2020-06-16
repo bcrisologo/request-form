@@ -23,14 +23,35 @@ adminController.edit = function(req, res) {
 // UPDATE admin username and password =============================
 adminController.update = function(req, res) {
 
-	AdminModel.findOneAndUpdate({ username: 'admin' })
+	// Old_password variable reference
+	oldPassword = req.body.old_password;
+	newPassword = req.body.new_password;
+
+	AdminModel.findOne({ username: 'admin' })
 	.then(function(adminuser) {
 		if(adminuser) {
-			
+			console.log(oldPassword, newPassword)
+			adminuser.changePassword(oldPassword, newPassword, function(err) {
+				if(err) {
+					if(err.name === 'IncorrectPasswordError') {
+						res.json({ message: 'Incorrect password' }); // Return error
+ 					}
+ 					else {
+ 						res.json({ message: 'Something went wrong!! Please try again after sometimes.' });
+ 					}
+				}
+				else {
+					console.log("Success in password change!")
+					res.redirect("/forms/adminsettings");
+				}
+			});
 		}
-	})
+		else {
+			res.status(500).json({message: 'This user does not exist'});
+		}
+	});
 
-	/*  // THIS WORKS!!! But need verification of current password before changing it
+	/*  // THIS WORKS!!! But this is without old password verification
 	AdminModel.findOneAndUpdate({ username: 'admin' })
 	.then(function(adminuser) {
 		if(adminuser) {
