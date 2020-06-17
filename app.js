@@ -7,7 +7,8 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 // MongoDB for local with db name of requestform =======================================
-const url = 'mongodb://localhost/requestform';
+// const url = 'mongodb://localhost/requestform';
+const url = 'mongodb+srv://yerin:T0rta_0530@bc-cloud-2-vvpqh.mongodb.net/xerox-form?retryWrites=true&w=majority';
 
 // To remove deprecation warning for findByIdAndUpdate and ensureIndex =======================================
 mongoose.set('useFindAndModify', false);
