@@ -20,14 +20,9 @@ router.get('/', connectEnsureLogin.ensureLoggedIn(), function(req, res) {
 });
 
 // SAVE submitted form =======================
-router.post('/save', connectEnsureLogin.ensureLoggedIn(), function(req, res) {
+router.post('/save', function(req, res) {
 	requestform.save(req, res);
 });
-
-// SUCCESS page loads after submitting form =======================
-/*router.get('/success', function(req, res) {
-	requestform.success(req, res);
-});*/
 
 // Delete a submitted request =======================
 router.post('/delete/:id', connectEnsureLogin.ensureLoggedIn(), function(req, res, next) {
@@ -49,5 +44,6 @@ router.post('/update/:id', connectEnsureLogin.ensureLoggedIn(), function(req, re
 router.get('/search', connectEnsureLogin.ensureLoggedIn(), function(req, res) {
 	requestform.search(req, res);
 });
+
 
 module.exports = router;

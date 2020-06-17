@@ -11,7 +11,7 @@ var RequestForm = require("../models/RequestForm");
 // controller object for CRUD
 var requestformController = {};
 
-// CRUD functionss =====================================================
+// CRUD functions =====================================================
 
 // READ all list of entries =====================================
 requestformController.list = function(req, res) {
@@ -61,7 +61,7 @@ requestformController.delete = function(req, res) {
 		}
 		else {
 			console.log("Entry Deleted!");
-			res.redirect("/forms/");
+			res.redirect("/forms");
 		}
 	});
 };
@@ -94,7 +94,7 @@ requestformController.update = function(req, res) {
 			res.render("../views/forms/edit", { submissionform: submissionform });
 		}
 		else {
-			res.redirect("/forms/");
+			res.redirect("/forms");
 		}
 	});
 };
