@@ -54,7 +54,7 @@ adminController.update = function(req, res) {
 		}
 	});
 
-	/*  // This setup works is without old password verification
+	/*  // This setup works without old password verification
 	AdminModel.findOneAndUpdate({ username: 'admin' })
 	.then(function(adminuser) {
 		if(adminuser) {

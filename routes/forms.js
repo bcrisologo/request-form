@@ -20,7 +20,7 @@ router.get('/', connectEnsureLogin.ensureLoggedIn(), function(req, res) {
 });
 
 // SAVE submitted form =======================
-router.post('/save', connectEnsureLogin.ensureLoggedIn(), function(req, res) {
+router.post('/save', function(req, res) {
 	requestform.save(req, res);
 });
 
