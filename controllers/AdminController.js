@@ -30,16 +30,14 @@ adminController.update = function(req, res) {
 	AdminModel.findOne({ username: 'admin' })
 	.then(function(adminuser) {
 		if(adminuser) {
-			// console.log(oldPassword, newPassword)
 			adminuser.changePassword(oldPassword, newPassword, function(err) {
 				if(err) {
 					if(err.name === 'IncorrectPasswordError') {
-						//res.json({ message: 'Incorrect password' }); // Return error
-						console.log("Incorrect old password entry");
+						console.log(err.name);
 						res.redirect("/adminsettings");
  					}
  					else {
- 						res.json({ message: 'Something went wrong!! Please try again after sometimes.' });
+ 						res.json({ message: 'Something went wrong!! Please try again after sometime.' });
  					}
 				}
 				else {
