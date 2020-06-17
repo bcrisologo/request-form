@@ -11,6 +11,9 @@ A simple request form template for businesses that provide services to clients. 
   * Added an "Admin Login" feature that restricts access of the submitted forms list ('/forms') unless Admin user has inserted credentials.
   * All pages (except for the Success page and the Login page) have a navigation bar placing the "Company Name"
   * All pages that has access to the database has a "Logout" button on the navigation bar.
+* **Update (06/16/2020):**
+  * Added "Admin Settings" page that allows the change of password for the admin account but needs verification before it can be changed
+  * Updated navbar and CSS style for "Admin Settings" and "Logout" buttons
 
 Default index page as shown below.
 ![](https://github.com/bcrisologo/request-form/blob/master/public/images/default-index-page.png)
@@ -36,6 +39,12 @@ If you choose 'Cancel' on the page, a confirmation pop-up will be triggered.  If
 
 The Forms List page has a Search bar that can query keywords in the First Name, Last Name, and Organization fields.
 ![](https://github.com/bcrisologo/request-form/blob/master/public/images/search-results-page.png)
+
+The Admin Settings page is currently only allowed to change the user "admin" password.  But it needs a verification of the old password before it can be changed successfully, otherwise the password will log in the console as "IncorrectPasswordError".  As seen below is the current view page for the Admin settings.
+![](https://github.com/bcrisologo/request-form/blob/master/public/images/adminsettings-page.png)
+
+Once successful change of password, a redirect triggers showing successful change as seen below.
+![](https://github.com/bcrisologo/request-form/blob/master/public/images/adminsettings-success-page.png)
 
 
 ## Setup
@@ -78,5 +87,8 @@ This project was built using Express, NodeJS, MongoDB and Bootstrap.  Passport i
 Source code for sorting table arrangement was [referenced here](https://www.kryogenix.org/code/browser/sorttable/).
 
 Possible features to be implemented:
-- [ ] Allow the Admin to change username and password once logged in
-- [ ] Add different levels of authorized users (Admin of page and another lower-level access user)
+- [x] Allow the Admin to change password once logged in
+- [ ] Add different authorized users (Admin of page and another lower-level access user) to perform certain tasks
+
+Future fixes:
+- [ ] Error message when admin user password change verification fails
