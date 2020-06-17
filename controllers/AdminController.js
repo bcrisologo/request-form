@@ -51,24 +51,6 @@ adminController.update = function(req, res) {
 			res.status(500).json({message: 'This user does not exist'});
 		}
 	});
-
-	/*  // This setup works without old password verification
-	AdminModel.findOneAndUpdate({ username: 'admin' })
-	.then(function(adminuser) {
-		if(adminuser) {
-			adminuser.setPassword(req.body.new_password, function() {
-				adminuser.save();
-				console.log("Successful password change!");
-				res.redirect("/forms/adminsettings");
-			});
-		}
-		else {
-			res.status(500).json({message: 'This user does not exist'});
-		}
-	}, function(err) {
-		console.error(err);
-	})
-	*/
 };
 
 adminController.success = function(req, res) {
