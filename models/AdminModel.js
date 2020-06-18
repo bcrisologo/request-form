@@ -5,7 +5,6 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 var AdminInfoSchema = new mongoose.Schema({
 	username: String,
-	password: String
 });
 
 /* Inserting index for query session */
