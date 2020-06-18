@@ -42,7 +42,6 @@ router.get('/success', function(req, res) {
 
 // GET login page.  ***ENTRY POINT*** ======================= 
 router.get('/login', function(req, res) {
-	// res.render('login');
 	AdminModel.findOne({ username: 'admin' }, async function(err, user) {
 		// Error in accessing login
 		if(err) {
