@@ -2,6 +2,7 @@
 // For updating admin username and password
 
 var mongoose = require('mongoose');
+var flash = require('connect-flash');
 var AdminModel = require("../models/AdminModel.js");		// Schema for AdminModel
 
 var adminController = {};
@@ -15,7 +16,7 @@ adminController.edit = function(req, res) {
 			console.log("Error: ", err)
 		}
 		else {
-			res.render("../views/adminsettings/adminsettings", { adminuser: adminuser });
+			res.render("../views/adminsettings/adminsettings", { adminuser: adminuser, message: "" });
 		}
 	});
 };
@@ -34,10 +35,10 @@ adminController.update = function(req, res) {
 				if(err) {
 					if(err.name === 'IncorrectPasswordError') {
 						console.log(err.name);
-						res.redirect("/adminsettings");
+						return res.render("../views/adminsettings/adminsettings", { message: "Incorrect old password" });
  					}
  					else {
- 						res.json({ message: 'Something went wrong!! Please try again after sometime.' });
+ 						return res.json({ message: 'Something went wrong!! Please try again after sometime.' });
  					}
 				}
 				else {
