@@ -89,8 +89,8 @@ This project was built using Express, NodeJS, MongoDB and Bootstrap.  Passport i
 Source code for sorting table arrangement was [referenced here](https://www.kryogenix.org/code/browser/sorttable/).
 
 Possible features to be implemented:
-- [x] Allow the Admin to change password once logged in
+- [x] ~~Allow the Admin to change password once logged in
 - [ ] Add different authorized users (Admin of page and another lower-level access user) to perform certain tasks
 
 Bug fixes:
-- [x] Error message when admin user password change verification fails (Updated 06/18/2020)
+- [x] ~~Error message when admin user password change verification fails (Updated 06/18/2020)
