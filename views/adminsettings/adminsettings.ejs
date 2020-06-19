@@ -38,6 +38,14 @@
     				<input class="form-control" type="password" name="new_password" id="new_password" required />
     			</div>
     		</div>
+
+            <!-- Error Message label -->
+            <div>
+                <% if(message) { %>
+                    <div class="col-sm-10 col-form-label" id="error-message"><%= message %></div>
+                <% } %>
+            </div>
+
     		<div class="btn-group offet-sm-2">
     			<button class="btn btn-info" type="submit">Update</button>   		
     	</form>
