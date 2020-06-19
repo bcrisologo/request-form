@@ -14,6 +14,8 @@ A simple request form template for businesses that provide services to clients. 
 * **Update (06/16/2020):**
   * Added "Admin Settings" page that allows the change of password for the admin account but needs verification before it can be changed
   * Updated navbar and CSS style for "Admin Settings" and "Logout" buttons
+* **Update (06/18/2020):**
+  * Updated error message display on incorrect admin password change
 
 Default index page as shown below.
 ![](https://github.com/bcrisologo/request-form/blob/master/public/images/default-index-page.png)
@@ -90,5 +92,5 @@ Possible features to be implemented:
 - [x] Allow the Admin to change password once logged in
 - [ ] Add different authorized users (Admin of page and another lower-level access user) to perform certain tasks
 
-Future fixes:
-- [ ] Error message when admin user password change verification fails
+Bug fixes:
+- [x] Error message when admin user password change verification fails (Updated 06/18/2020)
