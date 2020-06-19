@@ -15,7 +15,7 @@ adminController.edit = function(req, res) {
 			console.log("Error: ", err)
 		}
 		else {
-			res.render("../views/adminsettings/adminsettings", { adminuser: adminuser });
+			res.render("../views/adminsettings/adminsettings", { adminuser: adminuser, message: "" });
 		}
 	});
 };
@@ -34,7 +34,7 @@ adminController.update = function(req, res) {
 				if(err) {
 					if(err.name === 'IncorrectPasswordError') {
 						console.log(err.name);
-						res.redirect("/adminsettings");
+						res.render("../views/adminsettings/adminsettings", { message: "Incorrect Old Password" });
  					}
  					else {
  						res.json({ message: 'Something went wrong!! Please try again after sometime.' });
