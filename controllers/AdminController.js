@@ -15,7 +15,7 @@ adminController.edit = function(req, res) {
 			console.log("Error: ", err)
 		}
 		else {
-			res.render("../views/adminsettings/adminsettings", { adminuser: adminuser });
+			res.render("../views/adminsettings/adminsettings", { adminuser: adminuser, message: "" });
 		}
 	});
 };
@@ -34,7 +34,7 @@ adminController.update = function(req, res) {
 				if(err) {
 					if(err.name === 'IncorrectPasswordError') {
 						console.log(err.name);
-						res.redirect("/adminsettings");
+						res.render("../views/adminsettings/adminsettings", { message: "Incorrect Old Password" });
  					}
  					else {
  						res.json({ message: 'Something went wrong!! Please try again after sometime.' });
@@ -51,24 +51,6 @@ adminController.update = function(req, res) {
 			res.status(500).json({message: 'This user does not exist'});
 		}
 	});
-
-	/*  // This setup works without old password verification
-	AdminModel.findOneAndUpdate({ username: 'admin' })
-	.then(function(adminuser) {
-		if(adminuser) {
-			adminuser.setPassword(req.body.new_password, function() {
-				adminuser.save();
-				console.log("Successful password change!");
-				res.redirect("/forms/adminsettings");
-			});
-		}
-		else {
-			res.status(500).json({message: 'This user does not exist'});
-		}
-	}, function(err) {
-		console.error(err);
-	})
-	*/
 };
 
 adminController.success = function(req, res) {
