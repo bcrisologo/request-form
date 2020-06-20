@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #14171A;
 }
@@ -14,13 +13,54 @@ body {
 		display: block;
 		width: 100%;
 	}
+
+	#admin-login-form {
+		padding: 20px;
+		display: block;
+		width: 100%;
+	}
+
+	#request-list {
+		padding: 20px;
+		width: 100%;
+	}
+
+	#request-edit {
+		padding: 20px;
+		width: 100%;
+	}
+
+	#search-results {
+		padding: 20px;
+		width: 100%;
+	}
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 	#request-form {
 		display: block;
-		width: 100%;
+		width: 85%;
+	}
+
+	#admin-login-form {
+		display: block;
+		width: 85%;
+	}
+
+	#request-list {
+		padding: 50px;
+		width: 85%;
+	}
+
+	#request-edit {
+		padding: 20px;
+		width: 85%;
+	}
+
+	#search-results {
+		padding: 20px;
+		width: 85%;
 	}
 }
 
@@ -30,6 +70,26 @@ body {
 		display: block;
 		width: 45%;
 	}
+
+	#admin-login-form {
+		display: block;
+		width: 45%;
+	}
+
+	#request-list {
+		padding: 50px;
+		width: 85%;
+	}
+
+	#request-edit {
+		padding: 20px;
+		width: 85%;
+	}
+
+	#search-results {
+		padding: 20px;
+		width: 85%;
+	}
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -38,11 +98,27 @@ body {
 		display: block;
 		width: 45%;
 	}
+
+	#admin-login-form {
+		display: block;
+		width: 45%;
+	}
+
+	#request-list {
+		padding: 20px;
+		width: 85%;
+	}
+
+	#search-results {
+		padding: 20px;
+		width: 85%;
+	}
 }
 
 /* Class container with different ids starting with "request-" ========================*/
 
 #request-form {
+	margin-top: 20px;
 	padding: 20px;
 	background-color: #efefef;
 	border-radius: 6px;
@@ -64,24 +140,33 @@ body {
 	}
 
 #request-list {
+	margin-top: 20px;
 	padding: 20px;
 	background-color: #efefef;
 	border-radius: 6px;
-	width: 100%;
+	/*width: 100%;*/
 }
 
 #request-edit {
-	padding: 20px;
+	margin-top: 20px;
 	background-color: #efefef;
 	border-radius: 6px;
 }
 
 #search-results {
+	margin-top: 20px;
 	padding: 20px;
 	background-color: #efefef;
 	border-radius: 6px;
 }
 
+/* Admin Login page */
+#admin-login-form {
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #efefef;
+	border-radius: 6px;
+}
 
 /* For default sorttable.js icon removed ======================== */
 
@@ -103,6 +188,10 @@ th.sorttable_sorted_reverse::after {
 }
 #sorttable_sortfwdind, #sorttable_sortrevind { display: none; } 
 
+/* For the authenticate.js font color change ======================== */
+#error-message {
+	color: red;
+}
 
 /* This section is for the success.ejs components ======================== */
 .alert-success {
