@@ -3,6 +3,8 @@ var router = express.Router();
 
 var requestform = require("../controllers/RequestFormController.js");
 
+var 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -11,6 +13,11 @@ router.get('/', function(req, res, next) {
 /* REDIRECT to Success page after successful submission */
 router.get('/success', function(req, res) {
 	requestform.success(req, res);
+});
+
+/* GET login page */
+router.get('/login', function(req, res, next) {
+	res.render('login');
 });
 
 module.exports = router;
